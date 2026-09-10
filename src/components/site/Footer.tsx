@@ -1,5 +1,4 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
-import { useState } from "react";
 import { Arrow, Container } from "./primitives";
 import logoAsset from "@/assets/highreach-logo.png";
 
@@ -47,15 +46,6 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 }
 
 export function Footer() {
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "success">("idle");
-
-  const handleNewsletterSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!newsletterEmail.trim()) return;
-    setNewsletterStatus("success");
-  };
-
   return (
     <footer className="relative overflow-hidden bg-surface text-foreground">
       {/* subtle premium depth */}
@@ -66,7 +56,7 @@ export function Footer() {
       </div>
 
       <Container className="relative grid gap-14 pt-20 pb-12 md:grid-cols-2 md:gap-x-12 md:pb-14 lg:grid-cols-12 lg:gap-x-10 lg:pt-24 lg:pb-16">
-        <div className="lg:col-span-4 lg:pr-8">
+        <div className="lg:col-span-5 lg:pr-8">
           <img
             src={logoAsset}
             alt="HighReach — Success Elevated"
@@ -99,7 +89,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <nav aria-label="Quick links" className="lg:col-span-3">
+        <nav aria-label="Quick links" className="lg:col-span-4">
           <ColumnHeading>Quick Links</ColumnHeading>
           <ul className="mt-6 space-y-3.5">
             {QUICK_LINKS.map((l) => (
@@ -118,7 +108,7 @@ export function Footer() {
           </ul>
         </nav>
 
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-3">
           <ColumnHeading>Contact</ColumnHeading>
           <ul className="mt-6 space-y-4 text-sm text-secondary-ink">
             <li className="group">
@@ -150,40 +140,6 @@ export function Footer() {
               AI Tauwin – Othman Bin Afan Road, Riyadh, Saudi Arabia
             </li>
           </ul>
-        </div>
-
-        <div className="lg:col-span-3">
-          <ColumnHeading>Newsletter</ColumnHeading>
-          <p className="mt-6 text-sm text-secondary-ink">Subscribe To Our Newsletter</p>
-          <form
-            className="group mt-5 flex items-center gap-2 rounded-[12px] border border-hairline bg-white px-4 transition-all duration-[400ms] ease-out hover:border-accent/40 focus-within:border-accent focus-within:ring-1 focus-within:ring-accent/20"
-            onSubmit={handleNewsletterSubmit}
-          >
-            <label className="sr-only" htmlFor="newsletter-email">
-              Your email
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              placeholder="Your email"
-              value={newsletterEmail}
-              onChange={(event) => {
-                setNewsletterEmail(event.target.value);
-                setNewsletterStatus("idle");
-              }}
-              className="w-full bg-transparent py-3 text-sm text-foreground outline-none placeholder:text-secondary-ink/50"
-            />
-            <button
-              type="submit"
-              aria-label="Subscribe to our newsletter"
-              className="shrink-0 p-1 text-accent transition-transform duration-[400ms] ease-out hover:translate-x-1"
-            >
-              <Arrow />
-            </button>
-          </form>
-          <p className="mt-3 min-h-5 text-xs text-accent" role="status" aria-live="polite">
-            {newsletterStatus === "success" ? "Thank you. You are on the list." : ""}
-          </p>
         </div>
       </Container>
 
