@@ -3,7 +3,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 import { Arrow, Container } from "./primitives";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/highreach-logo.png.asset.json";
+import logoAsset from "@/assets/highreach-logo.png";
 
 const NAV = [
   { label: "Home", href: "/", path: "/", chevron: false },
@@ -15,8 +15,7 @@ const NAV = [
   { label: "Contact", href: "/#contact", chevron: false },
 ] as { label: string; href: string; path?: string; chevron: boolean }[];
 
-const FLOATING =
-  "bg-white border border-black/[0.06] shadow-[0_8px_25px_rgba(15,45,75,0.10)]";
+const FLOATING = "bg-white border border-black/[0.06] shadow-[0_8px_25px_rgba(15,45,75,0.10)]";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -34,10 +33,7 @@ export function Header() {
       <Container className="flex items-center justify-between gap-6 pt-4 lg:pt-6">
         {/* Floating logo container */}
         <div
-          className={cn(
-            "flex h-14 items-center gap-3 rounded-2xl px-3 lg:h-16 lg:px-4",
-            FLOATING,
-          )}
+          className={cn("flex h-14 items-center gap-3 rounded-2xl px-3 lg:h-16 lg:px-4", FLOATING)}
         >
           <button
             type="button"
@@ -49,13 +45,9 @@ export function Header() {
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <a
-            href="#top"
-            className="group flex items-center pr-1"
-            aria-label="HighReach home"
-          >
+          <a href="#top" className="group flex items-center pr-1" aria-label="HighReach home">
             <img
-              src={logoAsset.url}
+              src={logoAsset}
               alt="HighReach — Success Elevated"
               className="h-8 w-auto lg:h-9"
               width={240}
@@ -99,17 +91,8 @@ export function Header() {
       </Container>
 
       {/* Menu panel (mobile + desktop via hamburger) */}
-      <div
-        id="site-nav"
-        hidden={!open}
-        className="absolute inset-x-0 top-full px-4 pt-3"
-      >
-        <div
-          className={cn(
-            "mx-auto max-w-md rounded-2xl p-3",
-            FLOATING,
-          )}
-        >
+      <div id="site-nav" hidden={!open} className="absolute inset-x-0 top-full px-4 pt-3">
+        <div className={cn("mx-auto max-w-md rounded-2xl p-3", FLOATING)}>
           <ul className="flex flex-col">
             {NAV.map((item) => (
               <li key={item.label}>

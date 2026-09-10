@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Arrow, Container, Eyebrow, Reveal } from "@/components/site/primitives";
-import aboutHero from "@/assets/about-hero-riyadh.jpg";
-import aboutHeroVideo from "@/assets/about-hero-video.mp4.asset.json";
-import aboutSystems from "@/assets/about-systems.jpg";
-import resDiagnostic from "@/assets/res-diagnostic.jpg";
-import aiTransformation from "@/assets/ai-transformation.jpg";
-import cyberSecurity from "@/assets/cyber-security.jpg";
-import advisoryMeeting from "@/assets/advisory-meeting.jpg";
-import aboutDetail from "@/assets/about-strategy-detail.jpg";
+import aboutHeroVideo from "@/assets/about/about_video.mp4";
+import aboutSystems from "@/assets/about/system-level.jpeg";
+import resDiagnostic from "@/assets/about/res-diagnostic.jpeg";
+import aiTransformation from "@/assets/about/ai-augmented.jpeg";
+import cyberSecurity from "@/assets/about/built-for-complexity.jpeg";
+import advisoryMeeting from "@/assets/about/partnership-not-prescription.jpeg";
+import aboutDetail from "@/assets/about/about-strategy-detail.jpeg";
 
 const TITLE = "About HighReach | Capability Transformation Partner, Riyadh";
 const DESCRIPTION =
@@ -76,21 +75,20 @@ function AboutPage() {
         {/* HERO */}
         <section className="relative isolate flex min-h-[560px] items-center overflow-hidden pt-28 pb-10 sm:min-h-[600px] sm:pt-32 lg:h-[640px] lg:min-h-[620px] lg:max-h-[680px] lg:pt-36 lg:pb-14">
           {/* Fallback background image / colour (visible while video loads) */}
-          <div
+          {/* <div
             aria-hidden="true"
             className="absolute inset-0 z-0 bg-[#053462] bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${aboutHero})` }}
-          />
+          /> */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster={aboutHero}
             aria-hidden="true"
             className="absolute inset-0 z-[1] h-full w-full object-cover"
           >
-            <source src={aboutHeroVideo.url} type="video/mp4" />
+            <source src={aboutHeroVideo} type="video/mp4" />
           </video>
           {/* Subtle dark/blue readability overlay */}
           <div
@@ -102,10 +100,7 @@ function AboutPage() {
             <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
               <Reveal className="lg:col-span-7 xl:col-span-6">
                 <Eyebrow className="text-white/80">About us</Eyebrow>
-                <span
-                  aria-hidden="true"
-                  className="mt-5 block h-0.5 w-16 bg-accent"
-                />
+                <span aria-hidden="true" className="mt-5 block h-0.5 w-16 bg-accent" />
                 <h1 className="mt-6 text-[clamp(2.5rem,6.5vw,4.75rem)] font-semibold leading-[1.0] tracking-[-0.03em] text-white">
                   HighReach
                 </h1>
@@ -232,9 +227,7 @@ function AboutPage() {
                           <span className="h-1.5 w-1.5 rounded-full bg-accent/50" />
                         </div>
                         <div className="grid items-center gap-8 pt-8 lg:grid-cols-12 lg:gap-14 lg:pt-10">
-                          <div
-                            className={`lg:col-span-6 ${reversed ? "lg:order-2" : ""}`}
-                          >
+                          <div className={`lg:col-span-6 ${reversed ? "lg:order-2" : ""}`}>
                             <div className="flex items-baseline gap-5">
                               <span
                                 aria-hidden="true"
@@ -279,7 +272,11 @@ function AboutPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section id="contact" className="bg-background pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24" aria-labelledby="about-cta-heading">
+        <section
+          id="contact"
+          className="bg-background pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24"
+          aria-labelledby="about-cta-heading"
+        >
           <Container>
             <div className="relative overflow-hidden rounded-[20px] bg-white shadow-[0_12px_44px_-16px_rgba(5,52,98,0.14)] ring-1 ring-[rgba(5,52,98,0.08)]">
               {/* full-width subtle gradient wash */}
@@ -343,9 +340,33 @@ function AboutPage() {
                 />
                 <ellipse cx="340" cy="90" rx="95" ry="75" fill="url(#ctaFlow1)" opacity="0.22" />
                 <ellipse cx="90" cy="340" rx="120" ry="90" fill="url(#ctaFlow2)" opacity="0.18" />
-                <line x1="60" y1="60" x2="360" y2="360" stroke="var(--accent)" strokeWidth="0.5" opacity="0.12" />
-                <line x1="360" y1="60" x2="60" y2="360" stroke="var(--foreground)" strokeWidth="0.5" opacity="0.08" />
-                <circle cx="210" cy="210" r="150" fill="none" stroke="var(--accent)" strokeWidth="0.5" opacity="0.08" />
+                <line
+                  x1="60"
+                  y1="60"
+                  x2="360"
+                  y2="360"
+                  stroke="var(--accent)"
+                  strokeWidth="0.5"
+                  opacity="0.12"
+                />
+                <line
+                  x1="360"
+                  y1="60"
+                  x2="60"
+                  y2="360"
+                  stroke="var(--foreground)"
+                  strokeWidth="0.5"
+                  opacity="0.08"
+                />
+                <circle
+                  cx="210"
+                  cy="210"
+                  r="150"
+                  fill="none"
+                  stroke="var(--accent)"
+                  strokeWidth="0.5"
+                  opacity="0.08"
+                />
                 <circle
                   cx="210"
                   cy="210"

@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { Arrow, Container } from "./primitives";
-import logoAsset from "@/assets/highreach-logo.png.asset.json";
+import logoAsset from "@/assets/highreach-logo.png";
 
 const QUICK_LINKS = [
   { label: "Home", href: "#top" },
@@ -9,7 +9,6 @@ const QUICK_LINKS = [
   { label: "Cyber Security", href: "#capability" },
   { label: "Advisory Services", href: "#services" },
   { label: "Press Release", href: "#resources" },
-  
 ];
 
 function XIcon({ className }: { className?: string }) {
@@ -48,7 +47,7 @@ export function Footer() {
       <Container className="relative grid gap-14 pt-20 pb-12 md:grid-cols-2 md:gap-x-12 md:pb-14 lg:grid-cols-12 lg:gap-x-10 lg:pt-24 lg:pb-16">
         <div className="lg:col-span-4 lg:pr-8">
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="HighReach — Success Elevated"
             className="h-10 w-auto"
             width={240}
@@ -58,8 +57,8 @@ export function Footer() {
             <ColumnHeading>About HighReach</ColumnHeading>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-[1.85] text-secondary-ink">
-            HighReach develops people and organisations through expertise in strategy, innovation and
-            leadership.
+            HighReach develops people and organisations through expertise in strategy, innovation
+            and leadership.
           </p>
 
           <ul className="mt-8 flex items-center gap-3">
@@ -106,7 +105,10 @@ export function Footer() {
                 className="flex items-center gap-3 transition-colors duration-[400ms] hover:text-accent"
                 href="tel:+966566653356"
               >
-                <Phone className="h-4 w-4 text-foreground/60 transition-colors duration-[400ms] group-hover:text-accent" aria-hidden="true" />
+                <Phone
+                  className="h-4 w-4 text-foreground/60 transition-colors duration-[400ms] group-hover:text-accent"
+                  aria-hidden="true"
+                />
                 +966 56 665 3356
               </a>
             </li>
@@ -115,7 +117,10 @@ export function Footer() {
                 className="flex items-center gap-3 transition-colors duration-[400ms] hover:text-accent"
                 href="mailto:info@HighReach.sa"
               >
-                <Mail className="h-4 w-4 text-foreground/60 transition-colors duration-[400ms] group-hover:text-accent" aria-hidden="true" />
+                <Mail
+                  className="h-4 w-4 text-foreground/60 transition-colors duration-[400ms] group-hover:text-accent"
+                  aria-hidden="true"
+                />
                 info@HighReach.sa
               </a>
             </li>

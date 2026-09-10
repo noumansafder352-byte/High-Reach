@@ -1,40 +1,43 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
-import gamiLogo from "@/assets/GAMI.png.asset.json";
-import iamiLogo from "@/assets/IAMI.png.asset.json";
-import adiLogo from "@/assets/ADI.png.asset.json";
-import salLogo from "@/assets/SAL.png.asset.json";
-import slaLogo from "@/assets/SLA.png.asset.json";
+import gamiLogo from "@/assets/partners/GAMI.svg";
+import iamiLogo from "@/assets/partners/IAMI.svg";
+import adiLogo from "@/assets/partners/ADI.svg";
+import salLogo from "@/assets/partners/SAL.svg";
+import slaLogo from "@/assets/partners/SLA.svg";
 import lscLogo from "@/assets/lsc-logo.svg";
 import riyadhArchitecture from "@/assets/riyadh-architecture.jpg";
-import aiTransformation from "@/assets/ai-transformation.jpg";
-import cyberSecurity from "@/assets/cyber-security.jpg";
-import advisoryMeeting from "@/assets/advisory-meeting.jpg";
-import resDiagnostic from "@/assets/res-diagnostic.jpg";
-import resArchitecture from "@/assets/res-architecture.jpg";
-import resIntelligence from "@/assets/res-intelligence.jpg";
-import resCapability from "@/assets/res-capability.jpg";
-import resCyber from "@/assets/res-cyber.jpg";
-import aboutExecutives from "@/assets/about-saudi-executives.jpg";
-import aboutDetail from "@/assets/about-strategy-detail.jpg";
-import serviceCtScan from "@/assets/service-ct-scan.jpg";
-import serviceLeadership from "@/assets/service-agentic-leadership.jpg";
-import serviceCybernetics from "@/assets/service-cybernetics.jpg";
-import industryPublicSector from "@/assets/industry-public-sector.jpg";
-import industryTechTelecom from "@/assets/industry-tech-telecom.jpg";
-import industryPrivateSector from "@/assets/industry-private-sector.jpg";
-import industryRealEstate from "@/assets/industry-real-estate.jpg";
-import industryHealthcare from "@/assets/industry-healthcare.jpg";
-import industryMedia from "@/assets/industry-media.jpg";
-import industryLogistics from "@/assets/industry-logistics.jpg";
-import industryAerospace from "@/assets/industry-aerospace.jpg";
+import aiTransformation from "@/assets/home/ai-transformation.jpeg";
+import cyberSecurity from "@/assets/home/cyber-security.jpeg";
+import advisoryMeeting from "@/assets/home/advisory-meeting.jpeg";
+import resDiagnostic from "@/assets/home/res-diagnostic.jpeg";
+import resArchitecture from "@/assets/home/res-architecture.jpeg";
+import resIntelligence from "@/assets/home/res-intelligence.jpeg";
+import resCapability from "@/assets/home/res-capability.jpeg";
+import resCyber from "@/assets/home/res-cyber.jpeg";
+import aboutExecutives from "@/assets/home/about-saudi-executives.jpeg";
+import aboutDetail from "@/assets/home/about-strategy-detail.jpg";
+import serviceCtScan from "@/assets/home/service-ct-scan.jpeg";
+import serviceLeadership from "@/assets/home/service-agentic-leadership.jpeg";
+import serviceCybernetics from "@/assets/home/service-cybernetics.jpeg";
+import industryPublicSector from "@/assets/home/industry-public-sector.jpeg";
+import industryTechTelecom from "@/assets/home/industry-tech-telecom.jpeg";
+import industryPrivateSector from "@/assets/home/industry-private-sector.jpeg";
+import industryRealEstate from "@/assets/home/industry-real-estate.jpeg";
+import industryHealthcare from "@/assets/home/industry-healthcare.jpeg";
+import industryMedia from "@/assets/home/industry-media.jpeg";
+import industryLogistics from "@/assets/home/industry-logistics.jpeg";
+import industryAerospace from "@/assets/home/industry-aerospace.jpeg";
 import { Arrow, Container, Eyebrow, Reveal, SectionLabel } from "./primitives";
 
 /* ------------------------------------------------------------------ HERO */
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-24 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-36">
+    <section
+      id="top"
+      className="relative overflow-hidden pt-28 pb-24 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-36"
+    >
       <Container>
         <div className="relative mx-auto max-w-[58rem] text-center">
           <Reveal>
@@ -54,9 +57,9 @@ export function Hero() {
           </Reveal>
           <Reveal delay={180}>
             <p className="mx-auto mt-8 max-w-[42rem] text-lg leading-[1.7] text-secondary-ink">
-              In an era of AI and constant disruption, organisations must become smarter, more adaptive and
-              future-ready. HighReach develops the leadership, strategy and capabilities needed to thrive in a rapidly
-              changing world.
+              In an era of AI and constant disruption, organisations must become smarter, more
+              adaptive and future-ready. HighReach develops the leadership, strategy and
+              capabilities needed to thrive in a rapidly changing world.
             </p>
           </Reveal>
         </div>
@@ -80,7 +83,12 @@ const RESOURCES = [
     sub: "Diagnosis Before Intervention",
     image: resArchitecture,
   },
-  { id: "intelligence", title: "Intelligence", sub: "Strategic Intelligence", image: resIntelligence },
+  {
+    id: "intelligence",
+    title: "Intelligence",
+    sub: "Strategic Intelligence",
+    image: resIntelligence,
+  },
   {
     id: "capability",
     title: "Capability Overview",
@@ -106,7 +114,6 @@ function ResourcePanel({ item }: { item: (typeof RESOURCES)[number] }) {
         "hover:-translate-y-2 hover:border-accent hover:shadow-[0_28px_55px_-24px_rgba(5,52,98,0.45)]"
       }
     >
-
       <img
         src={item.image}
         alt=""
@@ -141,7 +148,6 @@ function ResourcePanel({ item }: { item: (typeof RESOURCES)[number] }) {
 
 export function Resources() {
   const n = RESOURCES.length;
-
 
   const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
@@ -273,12 +279,10 @@ export function Resources() {
                 className="w-[calc(100vw-3rem)] shrink-0 sm:w-[12.5rem] md:w-[13rem] lg:w-[11.5rem] xl:w-[13.75rem] hover:z-40"
                 aria-hidden={i >= n ? true : undefined}
               >
-
                 <ResourcePanel item={r} />
               </div>
             ))}
           </div>
-
         </div>
       </Reveal>
 
@@ -309,7 +313,10 @@ export function Resources() {
 
 const TOOLS = [
   { label: "AI Direction Scan", href: "https://londonstrategycentre.com/ai-direction-scan" },
-  { label: "Cyber Excellence Assessment", href: "https://londonstrategycentre.com/cyber-assessment" },
+  {
+    label: "Cyber Excellence Assessment",
+    href: "https://londonstrategycentre.com/cyber-assessment",
+  },
   { label: "Digital, Business Plan", href: "https://londonstrategycentre.com/venture-framework" },
 ];
 
@@ -391,14 +398,14 @@ export function About() {
             <div className="mt-8 border-l border-accent/40 pl-6 sm:pl-8">
               <Reveal delay={90}>
                 <p className="max-w-[46rem] text-base leading-[1.8] text-secondary-ink">
-                  With world-class expertise, extensive networks and strong partnerships, we develop people and
-                  organisations across strategy, innovation and leadership.
+                  With world-class expertise, extensive networks and strong partnerships, we develop
+                  people and organisations across strategy, innovation and leadership.
                 </p>
               </Reveal>
               <Reveal delay={150}>
                 <p className="mt-5 max-w-[46rem] text-base leading-[1.8] text-secondary-ink">
-                  We work with business leaders and management teams to overcome challenges, unlock potential and create
-                  lasting impact.
+                  We work with business leaders and management teams to overcome challenges, unlock
+                  potential and create lasting impact.
                 </p>
               </Reveal>
             </div>
@@ -406,25 +413,29 @@ export function About() {
             <div className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-px sm:bg-hairline">
               <Reveal delay={220} className="sm:bg-background">
                 <div className="h-full sm:pr-8">
-                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-accent">Our Approach</p>
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-accent">
+                    Our Approach
+                  </p>
                   <h3 className="mt-4 text-xl font-semibold tracking-[-0.01em] text-foreground lg:text-2xl">
                     Learning That Drives Action
                   </h3>
                   <p className="mt-4 text-sm leading-[1.75] text-secondary-ink">
-                    Our executive development approach combines critical thinking, contemporary education and practical
-                    application to enable organisational improvement.
+                    Our executive development approach combines critical thinking, contemporary
+                    education and practical application to enable organisational improvement.
                   </p>
                 </div>
               </Reveal>
               <Reveal delay={300} className="sm:bg-background">
                 <div className="h-full sm:pl-8">
-                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-accent">Our Uniqueness</p>
+                  <p className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-accent">
+                    Our Uniqueness
+                  </p>
                   <h3 className="mt-4 text-xl font-semibold tracking-[-0.01em] text-foreground lg:text-2xl">
                     Expertise Built Around Transformation
                   </h3>
                   <p className="mt-4 text-sm leading-[1.75] text-secondary-ink">
-                    We combine leadership facilitation, strategy, technology-enabled learning and problem-based design
-                    to deliver impactful transformation programmes.
+                    We combine leadership facilitation, strategy, technology-enabled learning and
+                    problem-based design to deliver impactful transformation programmes.
                   </p>
                 </div>
               </Reveal>
@@ -467,7 +478,13 @@ function CapabilityGraphic({ kind }: { kind: "ai" | "cyber" | "advisory" }) {
   const common = "absolute inset-0 h-full w-full text-accent/70";
   if (kind === "ai") {
     return (
-      <svg viewBox="0 0 400 240" fill="none" aria-hidden="true" className={common} preserveAspectRatio="none">
+      <svg
+        viewBox="0 0 400 240"
+        fill="none"
+        aria-hidden="true"
+        className={common}
+        preserveAspectRatio="none"
+      >
         <g stroke="currentColor" strokeWidth="0.75" opacity="0.9">
           <path d="M60 190 L140 120 L230 160 L320 70" />
           <path d="M60 190 L150 60 L230 160" />
@@ -487,10 +504,19 @@ function CapabilityGraphic({ kind }: { kind: "ai" | "cyber" | "advisory" }) {
   }
   if (kind === "cyber") {
     return (
-      <svg viewBox="0 0 400 240" fill="none" aria-hidden="true" className={common} preserveAspectRatio="none">
+      <svg
+        viewBox="0 0 400 240"
+        fill="none"
+        aria-hidden="true"
+        className={common}
+        preserveAspectRatio="none"
+      >
         <g stroke="currentColor" strokeWidth="0.75" opacity="0.9">
           <path d="M200 40 L280 75 V140 C280 178 240 198 200 208 C160 198 120 178 120 140 V75 Z" />
-          <path d="M200 62 L258 88 V140 C258 168 228 183 200 191 C172 183 142 168 142 140 V88 Z" opacity="0.6" />
+          <path
+            d="M200 62 L258 88 V140 C258 168 228 183 200 191 C172 183 142 168 142 140 V88 Z"
+            opacity="0.6"
+          />
           <path d="M20 120 H120 M280 120 H380" />
           <path d="M20 90 H100 M300 150 H380" opacity="0.5" />
         </g>
@@ -498,7 +524,13 @@ function CapabilityGraphic({ kind }: { kind: "ai" | "cyber" | "advisory" }) {
     );
   }
   return (
-    <svg viewBox="0 0 400 240" fill="none" aria-hidden="true" className={common} preserveAspectRatio="none">
+    <svg
+      viewBox="0 0 400 240"
+      fill="none"
+      aria-hidden="true"
+      className={common}
+      preserveAspectRatio="none"
+    >
       <g stroke="currentColor" strokeWidth="0.75" opacity="0.9">
         <rect x="40" y="150" width="60" height="50" />
         <rect x="130" y="110" width="60" height="90" />
@@ -512,7 +544,11 @@ function CapabilityGraphic({ kind }: { kind: "ai" | "cyber" | "advisory" }) {
 
 export function Capability() {
   return (
-    <section id="capability" className="bg-surface py-20 lg:py-28" aria-labelledby="capability-heading">
+    <section
+      id="capability"
+      className="bg-surface py-20 lg:py-28"
+      aria-labelledby="capability-heading"
+    >
       <Container>
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
           <Reveal className="lg:col-span-5">
@@ -526,9 +562,9 @@ export function Capability() {
           </Reveal>
           <Reveal delay={120} className="lg:col-span-7 lg:border-l lg:border-accent/40 lg:pl-10">
             <p className="max-w-2xl text-base leading-[1.7] text-secondary-ink sm:text-lg">
-              Through advisory, capability development, and intelligent platforms, we help organisations strengthen
-              leadership, align strategy with execution, and build the systems required to perform in an increasingly
-              complex world.
+              Through advisory, capability development, and intelligent platforms, we help
+              organisations strengthen leadership, align strategy with execution, and build the
+              systems required to perform in an increasingly complex world.
             </p>
           </Reveal>
         </div>
@@ -733,29 +769,29 @@ export function Industries() {
             >
               Our Industries
             </h2>
-              <div className="flex items-end justify-between gap-4 sm:gap-6 lg:items-center lg:gap-8">
-                <p className="max-w-md text-base leading-relaxed text-secondary-ink">
-                  Specialised expertise across diverse sectors and industries
-                </p>
-                <div className="flex shrink-0 gap-3">
-                  <button
-                    type="button"
-                    aria-label="Previous industries"
-                    onClick={() => manualMove(-1)}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-background text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
-                  >
-                    <Arrow className="h-4 w-4 rotate-180" />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Next industries"
-                    onClick={() => manualMove(1)}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-background text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
-                  >
-                    <Arrow className="h-4 w-4" />
-                  </button>
-                </div>
+            <div className="flex items-end justify-between gap-4 sm:gap-6 lg:items-center lg:gap-8">
+              <p className="max-w-md text-base leading-relaxed text-secondary-ink">
+                Specialised expertise across diverse sectors and industries
+              </p>
+              <div className="flex shrink-0 gap-3">
+                <button
+                  type="button"
+                  aria-label="Previous industries"
+                  onClick={() => manualMove(-1)}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-background text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
+                >
+                  <Arrow className="h-4 w-4 rotate-180" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next industries"
+                  onClick={() => manualMove(1)}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-background text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
+                >
+                  <Arrow className="h-4 w-4" />
+                </button>
               </div>
+            </div>
           </div>
         </Reveal>
       </Container>
@@ -905,7 +941,9 @@ function ServiceCard({ service, featured = false }: { service: ServiceItem; feat
         >
           {service.title}
         </h3>
-        <p className={`mt-3 text-sm leading-relaxed text-white/80 ${featured ? "max-w-lg lg:text-base" : "max-w-md"}`}>
+        <p
+          className={`mt-3 text-sm leading-relaxed text-white/80 ${featured ? "max-w-lg lg:text-base" : "max-w-md"}`}
+        >
           {service.body}
         </p>
       </span>
@@ -917,7 +955,11 @@ export function Services() {
   const [featured, ...rest] = SERVICES;
 
   return (
-    <section id="services" className="bg-foreground py-20 text-background lg:py-28" aria-labelledby="services-heading">
+    <section
+      id="services"
+      className="bg-foreground py-20 text-background lg:py-28"
+      aria-labelledby="services-heading"
+    >
       <Container>
         <Reveal>
           <div className="flex items-center gap-4">
@@ -962,7 +1004,11 @@ export function Services() {
 
 export function Careers() {
   return (
-    <section id="contact" className="bg-background pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24" aria-labelledby="careers-heading">
+    <section
+      id="contact"
+      className="bg-background pt-8 pb-16 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24"
+      aria-labelledby="careers-heading"
+    >
       <Container>
         <div className="relative overflow-hidden rounded-[20px] bg-white shadow-[0_12px_44px_-16px_rgba(5,52,98,0.14)] ring-1 ring-[rgba(5,52,98,0.08)]">
           {/* full-width subtle gradient wash */}
@@ -1026,9 +1072,33 @@ export function Careers() {
             />
             <ellipse cx="340" cy="90" rx="95" ry="75" fill="url(#ctaFlow1)" opacity="0.22" />
             <ellipse cx="90" cy="340" rx="120" ry="90" fill="url(#ctaFlow2)" opacity="0.18" />
-            <line x1="60" y1="60" x2="360" y2="360" stroke="var(--accent)" strokeWidth="0.5" opacity="0.12" />
-            <line x1="360" y1="60" x2="60" y2="360" stroke="var(--foreground)" strokeWidth="0.5" opacity="0.08" />
-            <circle cx="210" cy="210" r="150" fill="none" stroke="var(--accent)" strokeWidth="0.5" opacity="0.08" />
+            <line
+              x1="60"
+              y1="60"
+              x2="360"
+              y2="360"
+              stroke="var(--accent)"
+              strokeWidth="0.5"
+              opacity="0.12"
+            />
+            <line
+              x1="360"
+              y1="60"
+              x2="60"
+              y2="360"
+              stroke="var(--foreground)"
+              strokeWidth="0.5"
+              opacity="0.08"
+            />
+            <circle
+              cx="210"
+              cy="210"
+              r="150"
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="0.5"
+              opacity="0.08"
+            />
             <circle
               cx="210"
               cy="210"
@@ -1052,9 +1122,10 @@ export function Careers() {
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-6 max-w-3xl text-base leading-[1.75] text-secondary-ink sm:text-lg">
-                At HighReach, we develop the next generation of leaders and organisations by bringing the latest
-                research and thinking into practice. We are always looking for passionate, experienced professionals and
-                expert facilitators who are committed to excellence.
+                At HighReach, we develop the next generation of leaders and organisations by
+                bringing the latest research and thinking into practice. We are always looking for
+                passionate, experienced professionals and expert facilitators who are committed to
+                excellence.
               </p>
             </Reveal>
             <Reveal delay={220}>
@@ -1076,16 +1147,32 @@ export function Careers() {
 /* -------------------------------------------------------------- PARTNERS */
 
 const partnerLogos = [
-  { src: gamiLogo.url, alt: "General Authority for Military Industries", size: "h-24 sm:h-28 lg:h-32 max-w-[220px]" },
-  { src: iamiLogo.url, alt: "Innovation Award for Military Industries", size: "h-24 sm:h-28 lg:h-32 max-w-[210px]" },
-  { src: adiLogo.url, alt: "Academy of Defense Industries", size: "h-24 sm:h-28 lg:h-32 max-w-[220px]" },
-  { src: salLogo.url, alt: "SAL", size: "h-14 sm:h-16 lg:h-20 max-w-[200px]" },
-  { src: slaLogo.url, alt: "Saudi Logistics Academy", size: "h-20 sm:h-24 lg:h-28 max-w-[240px]" },
+  {
+    src: gamiLogo,
+    alt: "General Authority for Military Industries",
+    size: "h-24 sm:h-28 lg:h-32 max-w-[220px]",
+  },
+  {
+    src: iamiLogo,
+    alt: "Innovation Award for Military Industries",
+    size: "h-24 sm:h-28 lg:h-32 max-w-[210px]",
+  },
+  {
+    src: adiLogo,
+    alt: "Academy of Defense Industries",
+    size: "h-24 sm:h-28 lg:h-32 max-w-[220px]",
+  },
+  { src: salLogo, alt: "SAL", size: "h-14 sm:h-16 lg:h-20 max-w-[200px]" },
+  { src: slaLogo, alt: "Saudi Logistics Academy", size: "h-20 sm:h-24 lg:h-28 max-w-[240px]" },
 ];
 
 export function Partners() {
   return (
-    <section id="partners" className="relative overflow-hidden pt-20 pb-10 lg:pt-28 lg:pb-14" aria-labelledby="partners-heading">
+    <section
+      id="partners"
+      className="relative overflow-hidden pt-20 pb-10 lg:pt-28 lg:pb-14"
+      aria-labelledby="partners-heading"
+    >
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#FFFFFF_0%,#F6F9FC_45%,#FFFFFF_100%)]"
@@ -1108,9 +1195,24 @@ export function Partners() {
             >
               <circle cx="600" cy="300" r="260" stroke="rgba(20,128,174,0.08)" strokeWidth="1" />
               <circle cx="600" cy="300" r="380" stroke="rgba(20,128,174,0.05)" strokeWidth="1" />
-              <ellipse cx="600" cy="300" rx="520" ry="160" stroke="rgba(5,52,98,0.05)" strokeWidth="1" />
-              <path d="M80 480 C 340 340, 860 340, 1120 480" stroke="rgba(20,128,174,0.07)" strokeWidth="1" />
-              <path d="M120 140 C 400 240, 800 240, 1080 140" stroke="rgba(5,52,98,0.05)" strokeWidth="1" />
+              <ellipse
+                cx="600"
+                cy="300"
+                rx="520"
+                ry="160"
+                stroke="rgba(5,52,98,0.05)"
+                strokeWidth="1"
+              />
+              <path
+                d="M80 480 C 340 340, 860 340, 1120 480"
+                stroke="rgba(20,128,174,0.07)"
+                strokeWidth="1"
+              />
+              <path
+                d="M120 140 C 400 240, 800 240, 1080 140"
+                stroke="rgba(5,52,98,0.05)"
+                strokeWidth="1"
+              />
               <circle cx="340" cy="200" r="3" fill="rgba(20,128,174,0.18)" />
               <circle cx="860" cy="180" r="3" fill="rgba(20,128,174,0.18)" />
               <circle cx="600" cy="440" r="3" fill="rgba(5,52,98,0.14)" />
@@ -1121,7 +1223,9 @@ export function Partners() {
             />
 
             <div className="relative">
-              <p className="text-xs font-medium uppercase tracking-[0.26em] text-accent">Supported By</p>
+              <p className="text-xs font-medium uppercase tracking-[0.26em] text-accent">
+                Supported By
+              </p>
               <h3 className="mt-5 text-2xl font-semibold tracking-[-0.015em] text-foreground sm:text-3xl lg:text-4xl">
                 London Strategy Centre
               </h3>
@@ -1156,8 +1260,9 @@ export function Partners() {
           <div className="lg:col-span-6">
             <Reveal delay={100}>
               <p className="max-w-xl text-base leading-[1.75] text-secondary-ink sm:text-lg">
-                HighReach collaborates with leading partners in executive learning and organisational development to
-                create impactful experiences for leaders and organisations.
+                HighReach collaborates with leading partners in executive learning and
+                organisational development to create impactful experiences for leaders and
+                organisations.
               </p>
             </Reveal>
           </div>
@@ -1168,7 +1273,9 @@ export function Partners() {
           <div className="mt-14 lg:mt-16">
             <div className="flex items-center justify-center gap-5">
               <span className="h-px w-12 bg-hairline" aria-hidden />
-              <h3 className="text-xs font-medium uppercase tracking-[0.22em] text-secondary-ink">Partners</h3>
+              <h3 className="text-xs font-medium uppercase tracking-[0.22em] text-secondary-ink">
+                Partners
+              </h3>
               <span className="h-px w-12 bg-hairline" aria-hidden />
             </div>
 
