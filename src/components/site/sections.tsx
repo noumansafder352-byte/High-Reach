@@ -453,6 +453,7 @@ const CAPABILITIES = [
   {
     title: "Artificial Intelligence",
     body: "Comprehensive AI strategy and implementation certification",
+    href: "https://londonstrategycentre.com/artificial-intelligence",
     image: aiTransformation,
     alt: "Analysts reviewing AI performance dashboards",
     kind: "ai" as const,
@@ -460,6 +461,7 @@ const CAPABILITIES = [
   {
     title: "Cyber Security",
     body: "Advanced cyber security framework and risk management",
+    href: "https://londonstrategycentre.com/cyber-security",
     image: cyberSecurity,
     alt: "Cyber security operations centre",
     kind: "cyber" as const,
@@ -467,6 +469,7 @@ const CAPABILITIES = [
   {
     title: "Advisory Services",
     body: "Advisory Services provide expert advice to support better decisions and growth.",
+    href: "https://londonstrategycentre.com/advisory-services",
     image: advisoryMeeting,
     alt: "Executive advisory meeting in a Riyadh office",
     kind: "advisory" as const,
@@ -578,7 +581,7 @@ export function Capability() {
               className={`group ${i === 1 ? "sm:translate-y-5 lg:translate-y-6" : ""}`}
             >
               <a
-                href="#contact"
+                href={c.href}
                 className="relative block h-[22rem] w-full overflow-hidden rounded-[0.875rem] border border-hairline shadow-[0_1px_2px_rgba(5,52,98,0.04)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-accent/60 hover:shadow-[0_18px_40px_rgba(5,52,98,0.10)]"
               >
                 <img
@@ -880,6 +883,7 @@ const SERVICES = [
     number: "01",
     title: "CT Scan",
     body: "An AI-enabled diagnostic, mapping how leaders think, decide, and execute, then surfacing the systemic constraints on performance.",
+    href: "https://londonstrategycentre.com/artificial-intelligence/capability-transformation-scan",
     image: serviceCtScan,
     alt: "Illuminated neural network visualisation representing an AI-enabled organisational diagnostic",
   },
@@ -887,6 +891,7 @@ const SERVICES = [
     number: "02",
     title: "Agentic Leadership",
     body: "Producing measurable shifts in decision quality and execution coherence, not just competency scores or attendance on a programme.",
+    href: "https://londonstrategycentre.com/artificial-intelligence/agentic-leadership-transformation",
     image: serviceLeadership,
     alt: "Senior executives in discussion around a boardroom table representing agentic leadership",
   },
@@ -894,6 +899,7 @@ const SERVICES = [
     number: "03",
     title: "Cybernetics Transformation",
     body: "Redesigning decision architecture, sensing systems, and governance so your organisation continuously senses, adapts, and performs.",
+    href: "https://londonstrategycentre.com/artificial-intelligence/cybernetic-organisation-design",
     image: serviceCybernetics,
     alt: "Operations command centre with data dashboards representing cybernetics transformation",
   },
@@ -904,7 +910,7 @@ type ServiceItem = (typeof SERVICES)[number];
 function ServiceCard({ service, featured = false }: { service: ServiceItem; featured?: boolean }) {
   return (
     <a
-      href="#contact"
+      href={service.href}
       className={`group relative flex h-full flex-col justify-between gap-16 overflow-hidden rounded-3xl p-7 shadow-[0_12px_40px_-12px_rgba(20,128,174,0.28)] transition-all duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:scale-[1.015] hover:shadow-[0_28px_60px_-16px_rgba(20,128,174,0.45)] lg:p-9 ${
         featured ? "min-h-[26rem] lg:min-h-[36rem]" : "min-h-[18rem] lg:min-h-[17.25rem]"
       }`}

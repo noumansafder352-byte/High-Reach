@@ -1,14 +1,17 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
 import { Arrow, Container } from "./primitives";
 import logoAsset from "@/assets/highreach-logo.png";
 
 const QUICK_LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "About Us", href: "#about" },
-  { label: "Artificial Intelligence", href: "#capability" },
-  { label: "Cyber Security", href: "#capability" },
-  { label: "Advisory Services", href: "#services" },
-  { label: "Press Release", href: "#resources" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  {
+    label: "Artificial Intelligence",
+    href: "https://londonstrategycentre.com/artificial-intelligence",
+  },
+  { label: "Cyber Security", href: "https://londonstrategycentre.com/cyber-security" },
+  { label: "Advisory Services", href: "https://londonstrategycentre.com/advisory-services" },
 ];
 
 function XIcon({ className }: { className?: string }) {
@@ -35,6 +38,15 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 }
 
 export function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "success">("idle");
+
+  const handleNewsletterSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    setNewsletterStatus("success");
+  };
+
   return (
     <footer className="relative overflow-hidden bg-surface text-foreground">
       {/* subtle premium depth */}
@@ -136,7 +148,7 @@ export function Footer() {
           <p className="mt-6 text-sm text-secondary-ink">Subscribe To Our Newsletter</p>
           <form
             className="group mt-5 flex items-center gap-2 rounded-[12px] border border-hairline bg-white px-4 transition-all duration-[400ms] ease-out hover:border-accent/40 focus-within:border-accent focus-within:ring-1 focus-within:ring-accent/20"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleNewsletterSubmit}
           >
             <label className="sr-only" htmlFor="newsletter-email">
               Your email
@@ -145,6 +157,11 @@ export function Footer() {
               id="newsletter-email"
               type="email"
               placeholder="Your email"
+              value={newsletterEmail}
+              onChange={(event) => {
+                setNewsletterEmail(event.target.value);
+                setNewsletterStatus("idle");
+              }}
               className="w-full bg-transparent py-3 text-sm text-foreground outline-none placeholder:text-secondary-ink/50"
             />
             <button
@@ -155,6 +172,9 @@ export function Footer() {
               <Arrow />
             </button>
           </form>
+          <p className="mt-3 min-h-5 text-xs text-accent" role="status" aria-live="polite">
+            {newsletterStatus === "success" ? "Thank you. You are on the list." : ""}
+          </p>
         </div>
       </Container>
 
