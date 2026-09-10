@@ -390,18 +390,9 @@ function AboutPage() {
                 </Reveal>
                 <Reveal delay={120}>
                   <p className="mt-6 max-w-3xl text-base leading-[1.75] text-secondary-ink sm:text-lg">
-                    For leadership teams navigating the gap between strategic intent and
-                    organisational performance, whether the challenge is decision quality under
-                    complexity, strategy-to-execution alignment, or building the systems that
-                    sustain capability at scale, HighReach provides the diagnostic rigour, the
-                    system-level perspective, and the embedded partnership that structural change
-                    requires.
-                  </p>
-                </Reveal>
-                <Reveal delay={180}>
-                  <p className="mt-4 max-w-3xl text-base leading-[1.75] text-secondary-ink sm:text-lg">
-                    To discuss how HighReach's work applies to your organisation's specific context,
-                    contact the team.
+                    HighReach helps leadership teams turn strategic intent into organisational
+                    performance through rigorous diagnostics, system-level insight, and embedded
+                    partnership. Contact our team to discuss your organisation's context.
                   </p>
                 </Reveal>
                 <Reveal delay={220}>

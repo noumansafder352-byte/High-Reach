@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import gamiLogo from "@/assets/partners/GAMI.svg";
 import iamiLogo from "@/assets/partners/IAMI.svg";
 import adiLogo from "@/assets/partners/ADI.svg";
@@ -103,11 +103,11 @@ const RESOURCES = [
   },
 ];
 
-/** One full-bleed immersive resource panel. Title shows by default; description + download reveal on hover. */
+/** One full-bleed immersive resource panel. Title shows by default; description reveals on hover. */
 function ResourcePanel({ item }: { item: (typeof RESOURCES)[number] }) {
   return (
     <a
-      href="#contact"
+      href="https://londonstrategycentre.com/"
       className={
         "group relative block h-[21rem] w-full overflow-hidden rounded-2xl border border-hairline bg-background shadow-[0_10px_30px_-18px_rgba(5,52,98,0.35)] " +
         "transition-all duration-[550ms] ease-[cubic-bezier(0.16,1,0.3,1)] " +
@@ -134,12 +134,6 @@ function ResourcePanel({ item }: { item: (typeof RESOURCES)[number] }) {
         </h3>
         <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-[600ms] ease-out group-hover:mt-2 group-hover:max-h-24 group-hover:opacity-100">
           <p className="max-w-[28ch] text-sm leading-relaxed text-white/90">{item.sub}</p>
-          <span className="mt-2 inline-flex items-center gap-2 text-[0.78rem] font-medium text-white">
-            <Download className="h-3.5 w-3.5" aria-hidden="true" />
-            Download
-            <span className="sr-only"> {item.title}</span>
-            <Arrow className="h-3 w-3 transition-transform duration-500 ease-out group-hover:translate-x-1.5" />
-          </span>
         </div>
       </div>
     </a>
