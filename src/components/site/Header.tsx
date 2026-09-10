@@ -8,11 +8,23 @@ import logoAsset from "@/assets/highreach-logo.png";
 const NAV = [
   { label: "Home", href: "/", path: "/", chevron: false },
   { label: "About Us", href: "/about", path: "/about", chevron: false },
-  { label: "Artificial Intelligence", href: "/#capability", chevron: true },
-  { label: "Cyber Security", href: "/#capability", chevron: true },
-  { label: "Advisory Services", href: "/#services", chevron: true },
-  { label: "Press Release", href: "/#resources", chevron: true },
-  { label: "Contact", href: "/#contact", chevron: false },
+  {
+    label: "Artificial Intelligence",
+    href: "https://londonstrategycentre.com/artificial-intelligence",
+    chevron: true,
+  },
+  {
+    label: "Cyber Security",
+    href: "https://londonstrategycentre.com/cyber-security",
+    chevron: true,
+  },
+  {
+    label: "Advisory Services",
+    href: "https://londonstrategycentre.com/advisory-services",
+    chevron: true,
+  },
+  { label: "Press Release", href: "https://londonstrategycentre.com/press-release", chevron: true },
+  { label: "Contact", href: "https://londonstrategycentre.com/contact", chevron: false },
 ] as { label: string; href: string; path?: string; chevron: boolean }[];
 
 const FLOATING = "bg-white border border-black/[0.06] shadow-[0_8px_25px_rgba(15,45,75,0.10)]";
@@ -45,7 +57,7 @@ export function Header() {
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <a href="#top" className="group flex items-center pr-1" aria-label="HighReach home">
+          <a href="/" className="group flex items-center pr-1" aria-label="HighReach home">
             <img
               src={logoAsset}
               alt="HighReach — Success Elevated"
@@ -71,7 +83,7 @@ export function Header() {
                   href={item.href}
                   aria-current={isActive(item) ? "page" : undefined}
                   className={cn(
-                    "inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[0.83rem] font-semibold tracking-wide text-[#053462]/85 transition-colors hover:bg-[#f3f4f3] hover:text-[#1480AE]",
+                    "inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg px-3.5 py-2 text-[0.83rem] font-semibold tracking-wide text-[#053462]/85 transition-colors hover:bg-[#f3f4f3] hover:text-[#1480AE]",
                     isActive(item) &&
                       "bg-[#f3f4f3] text-[#053462] hover:bg-[#e8eeec] hover:text-[#053462]",
                   )}
@@ -90,34 +102,79 @@ export function Header() {
         </nav>
       </Container>
 
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 bg-[#053462]/10 backdrop-blur-[2px] transition-opacity duration-300",
+          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+
       {/* Menu panel (mobile + desktop via hamburger) */}
-      <div id="site-nav" hidden={!open} className="absolute inset-x-0 top-full px-4 pt-3">
-        <div className={cn("mx-auto max-w-md rounded-2xl p-3", FLOATING)}>
+      <div
+        id="site-nav"
+        aria-hidden={!open}
+        inert={!open}
+        className={cn(
+          "fixed inset-y-0 left-0 z-10 flex w-[min(28rem,88vw)] flex-col border-r border-[#053462]/[0.08] bg-white/95 px-6 pb-8 pt-6 shadow-[18px_0_55px_rgba(5,52,98,0.14)] backdrop-blur-xl transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-8",
+          open ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-full opacity-0",
+        )}
+      >
+        <div className="flex items-center justify-between border-b border-[#053462]/[0.08] pb-6">
+          <a href="/" onClick={() => setOpen(false)} aria-label="HighReach home">
+            <img
+              src={logoAsset}
+              alt="HighReach — Success Elevated"
+              className="h-9 w-auto"
+              width={240}
+              height={64}
+            />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#f3f4f3] text-[#053462] transition-colors hover:bg-[#e8eeec] hover:text-[#1480AE]"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <nav aria-label="Menu" className="mt-8 flex-1">
           <ul className="flex flex-col">
-            {NAV.map((item) => (
+            {NAV.map((item, index) => (
               <li key={item.label}>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "flex items-center justify-between rounded-xl px-4 py-3.5 text-base text-[#053462] transition-colors hover:bg-[#f3f4f3] hover:text-[#1480AE]",
-                    isActive(item) && "bg-[#f3f4f3]",
+                    "group flex items-center gap-4 border-b border-[#053462]/[0.08] py-4 text-[1.05rem] font-medium text-[#053462] transition-colors hover:text-[#1480AE]",
+                    isActive(item) && "text-[#1480AE]",
                   )}
                 >
-                  {item.label}
-                  <Arrow className="text-[#1480AE]" />
+                  <span className="w-6 text-[0.68rem] font-semibold tracking-[0.18em] text-[#1480AE]/70">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1">{item.label}</span>
+                  <Arrow className="h-4 w-4 text-[#1480AE] transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </li>
             ))}
           </ul>
-          <div className="mt-2 flex flex-col gap-1 border-t border-black/[0.06] px-4 pb-3 pt-4 text-sm text-[#053462]/70">
-            <a href="tel:+966566653356" className="transition-colors hover:text-[#1480AE]">
-              +966 56 665 3356
-            </a>
-            <a href="mailto:info@HighReach.sa" className="transition-colors hover:text-[#1480AE]">
-              info@HighReach.sa
-            </a>
-          </div>
+        </nav>
+
+        <div className="mt-8 border-t border-[#053462]/[0.08] pt-5 text-sm text-[#053462]/65">
+          <a href="tel:+966566653356" className="block transition-colors hover:text-[#1480AE]">
+            +966 56 665 3356
+          </a>
+          <a
+            href="mailto:info@HighReach.sa"
+            className="mt-2 block transition-colors hover:text-[#1480AE]"
+          >
+            info@HighReach.sa
+          </a>
         </div>
       </div>
     </header>
