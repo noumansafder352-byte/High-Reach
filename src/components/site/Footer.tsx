@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { useState } from "react";
 import { Arrow, Container } from "./primitives";
 import logoAsset from "@/assets/highreach-logo.png";
@@ -14,19 +14,28 @@ const QUICK_LINKS = [
   { label: "Advisory Services", href: "https://londonstrategycentre.com/advisory-services" },
 ];
 
-function XIcon({ className }: { className?: string }) {
+function TikTokIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className={className}>
-      <path d="M17.53 3H20.5l-6.49 7.42L21.75 21h-5.99l-4.69-6.13L5.7 21H2.73l6.94-7.93L2.25 3h6.14l4.24 5.6L17.53 3Zm-1.04 16.2h1.65L7.6 4.71H5.83L16.49 19.2Z" />
+      <path d="M14.5 3h3.1c.23 1.65 1.17 2.82 2.9 3.36v3.13a8.6 8.6 0 0 1-2.9-.88v6.1a5.3 5.3 0 1 1-4.58-5.25v3.2a2.15 2.15 0 1 0 1.48 2.05V3Z" />
     </svg>
   );
 }
 
 const SOCIALS = [
-  { label: "Facebook", href: "https://facebook.com", Icon: Facebook },
-  { label: "LinkedIn", href: "https://linkedin.com", Icon: Linkedin },
-  { label: "Instagram", href: "https://instagram.com", Icon: Instagram },
-  { label: "X", href: "https://x.com", Icon: XIcon },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/londonstrategycentre/",
+    Icon: Linkedin,
+  },
+  { label: "Facebook", href: "https://www.facebook.com/londonstrategycentreuk/", Icon: Facebook },
+  { label: "YouTube", href: "https://www.youtube.com/@LSCConnect", Icon: Youtube },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/londonstrategycentreuk/",
+    Icon: Instagram,
+  },
+  { label: "TikTok", href: "https://www.tiktok.com/@londonstrategycentreuk", Icon: TikTokIcon },
 ];
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
