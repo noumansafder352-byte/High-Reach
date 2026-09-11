@@ -331,28 +331,41 @@ export function Header() {
               <li key={item.label}>
                 {item.chevron && item.label in DROPDOWN_LINKS ? (
                   <>
-                    <button
-                      type="button"
-                      aria-expanded={mobileSubmenu === item.label}
-                      onClick={() =>
-                        setMobileSubmenu((current) => (current === item.label ? null : item.label))
-                      }
+                    <div
                       className={cn(
-                        "group flex w-full items-center gap-4 border-b border-[#053462]/[0.08] py-4 text-left text-[1.05rem] font-medium text-[#053462] transition-colors hover:text-[#1480AE]",
+                        "group flex w-full items-center gap-4 border-b border-[#053462]/[0.08] py-4 text-[1.05rem] font-medium text-[#053462] transition-colors hover:text-[#1480AE]",
                         isActive(item) && "text-[#1480AE]",
                       )}
                     >
                       <span className="w-6 text-[0.68rem] font-semibold tracking-[0.18em] text-[#1480AE]/70">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="flex-1">{item.label}</span>
-                      <ChevronDown
-                        className={cn(
-                          "h-4 w-4 text-[#1480AE] transition-transform duration-300",
-                          mobileSubmenu === item.label && "rotate-180",
-                        )}
-                      />
-                    </button>
+                      <a
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="flex-1 py-1 text-left"
+                      >
+                        {item.label}
+                      </a>
+                      <button
+                        type="button"
+                        aria-label={`Toggle ${item.label} submenu`}
+                        aria-expanded={mobileSubmenu === item.label}
+                        onClick={() =>
+                          setMobileSubmenu((current) =>
+                            current === item.label ? null : item.label,
+                          )
+                        }
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-md"
+                      >
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 text-[#1480AE] transition-transform duration-300",
+                            mobileSubmenu === item.label && "rotate-180",
+                          )}
+                        />
+                      </button>
+                    </div>
                     {mobileSubmenu === item.label && (
                       <div className="border-b border-[#053462]/[0.08] bg-[#f8faf9] px-3 py-3">
                         {DROPDOWN_LINKS[item.label as keyof typeof DROPDOWN_LINKS].items.map(
